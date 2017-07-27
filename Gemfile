@@ -43,6 +43,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'annotate', '~> 2.6.5'
   gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.0.5'
 
   gem 'mina', '~> 1.0.6'
   gem 'mina-unicorn', '~> 1.1.0'
