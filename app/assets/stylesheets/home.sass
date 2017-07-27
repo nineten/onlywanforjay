@@ -1,0 +1,52 @@
+body
+  padding: 0
+  margin: 0
+
+.parallax
+  /* The image used */
+  background-image: image-url("background.jpg")
+
+  /* Set a specific height */
+  height: 100vh
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed
+  background-repeat: no-repeat
+  background-size: cover
+
+  .title
+    padding-top: 20vh
+    margin-left: 10vw
+    font-family: 'Indie Flower', cursive
+    font-size: 80px
+    line-height: 60px
+
+  .date
+    margin-left: 10vw
+    font-family: 'Indie Flower', cursive
+    font-size: 60px
+    line-height: 40px
+
+  .arrow-group
+    position: absolute
+    bottom: 20px
+    width: 100vw
+    text-align: center
+
+    .text
+      font-family: 'Indie Flower', cursive
+      color: #fff
+
+    .arrow
+      -webkit-transition: all .2s linear
+      fill: #ffffff !important
+
+@media only screen and (max-device-width: 1024px)
+  .parallax 
+    background-attachment: scroll
+
+.home
+  text-align: center
+  height: 100vh
+  //padding-top: 10vh
+
