@@ -55,6 +55,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -186,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 2.6.5)
   coffee-rails (~> 4.2)
+  dotenv-rails (~> 2.2.0)
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
