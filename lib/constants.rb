@@ -12,4 +12,7 @@ module Constants
     "Names of additional guests",
     "Dietary concerns"
   ]
+
+  EXPORTED_TIME_FORMAT = "%-m/%-d/%Y %H:%M:%S"
+
 end
