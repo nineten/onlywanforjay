@@ -13,19 +13,33 @@ body
   background-attachment: fixed
   background-repeat: no-repeat
   background-size: cover
+  background-position: center 100%
 
-  .title
+  font-family: 'Amatic Sc', cursive
+  font-weight: 700
+
+  .content
+    text-align: center
     padding-top: 20vh
-    margin-left: 10vw
-    font-family: 'Indie Flower', cursive
-    font-size: 80px
-    line-height: 60px
+    //margin-left: 20vw
+    display: block
+    //color: #694489
+    color: #000
 
-  .date
-    margin-left: 10vw
-    font-family: 'Indie Flower', cursive
-    font-size: 60px
-    line-height: 40px
+    .content-block
+      display: table
+      width: 100%
+
+      .title
+        font-size: 100px
+        line-height: 80px
+        display: table-row
+
+      .date
+        font-size: 50px
+        line-height: 50px
+        text-align: center
+        display: table-row
 
   .arrow-group
     position: absolute
@@ -34,7 +48,7 @@ body
     text-align: center
 
     .text
-      font-family: 'Indie Flower', cursive
+      font-size: 30px
       color: #fff
 
     .arrow
@@ -49,4 +63,19 @@ body
   text-align: center
   height: 100vh
   //padding-top: 10vh
+
+  .header
+    img
+      width: 100%
+
+  .content
+    .title
+      font-family: 'Great Vibes', cursive
+      font-size: 80px
+
+    .rsvp-form
+
+  .footer
+    img
+      width: 100%
 
