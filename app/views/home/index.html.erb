@@ -28,7 +28,23 @@
     <div class="title">
       Jayden &amp; Wanli
     </div>
-    <div class="rsvp-form">
+    <div class="rsvp-form row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"} do |f| %>
+          <div class="form-group labelholder" data-label="NAME">
+            <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg" %>
+          </div>
+          <div class="form-group labelholder" data-label="EMAIL">
+            <%= f.email_field :email, placeholder: "Email", class: "form-control input-lg" %>
+          </div>
+          <div class="form-group labelholder" data-label="CONTACT NUMBER">
+            <%= f.text_field :contact_no, placeholder: "Contact number", class: "form-control input-lg" %>
+          </div>
+          <div class="form-group labelholder" data-label="NO OF GUESTS">
+            <%= f.text_field :no_of_guests, placeholder: "Number of guests", class: "form-control input-lg" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="footer">
