@@ -29,8 +29,6 @@ $(document).ready(function() {
 
   $('#rsvp_no_of_guests').change(function(e) {
     var value = $(this).val();
-    console.log(value);
-    console.log(value > 1);
 
     if (value > 1) {
       $("#additional-guests").show();
@@ -45,6 +43,7 @@ $(document).ready(function() {
       $("#rsvp_no_of_baby_chairs_needed").attr({max: value - 1});
     } else {
       $("#additional-guests").hide();
+      $("#additional-guests-names").html("");
     }
   });
 });
