@@ -100,6 +100,8 @@ GEM
       os (~> 0.9)
       signet (~> 0.7)
     httpclient (2.8.3)
+    humanize_boolean (0.0.2)
+      i18n
     hurley (0.2)
     i18n (0.8.6)
     ice_nine (0.11.2)
@@ -256,6 +258,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails (~> 2.2.0)
   google_drive (~> 2.1.2)
+  humanize_boolean (~> 0.0.2)
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
