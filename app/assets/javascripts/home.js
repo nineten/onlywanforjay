@@ -46,4 +46,26 @@ $(document).ready(function() {
       $("#additional-guests-names").html("");
     }
   });
+
+  // GOOGLE MAPS
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ 
+    provider: {}, 
+    internal: {
+      id: 'map'
+    }
+  }, function(){
+    markers = handler.addMarkers([
+      {
+        //placeId: "ChIJM5V40Pgb2jER--ifKKZe-sA"
+        lat: 1.252107, 
+        lng: 103.817504,
+        infowindow: 'Jayden & Wanli Wedding'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17);
+  });
+
 });
