@@ -41,7 +41,10 @@
             <%= f.text_field :contact_no, placeholder: "Contact number", class: "form-control input-lg" %>
           </div>
           <div class="form-group labelholder" data-label="NO OF GUESTS">
-            <%= f.text_field :no_of_guests, placeholder: "Number of guests", class: "form-control input-lg" %>
+            <%= f.number_field :no_of_guests, { placeholder: "Number of guests", min: 1, max: 9, step: 1, value: 1, class: "form-control input-lg"} %>
+          </div>
+          <div class="form-group labelholder" data-label="ATTENDING?">
+            <%= f.collection_select :attending, [true, false], :to_s, :to_s, {}, { class: "form-control input-lg" } %>
           </div>
         <% end %>
       </div>
