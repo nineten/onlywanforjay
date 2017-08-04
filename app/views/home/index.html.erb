@@ -43,8 +43,20 @@
           <div class="form-group labelholder" data-label="NO OF GUESTS">
             <%= f.number_field :no_of_guests, { placeholder: "Number of guests", min: 1, max: 9, step: 1, value: 1, class: "form-control input-lg"} %>
           </div>
+          <div id="additional-guests" style="display: none;">
+            <div id="additional-guests-names"></div>
+            <div class="form-group labelholder" data-label="NO OF BABY CHAIRS NEEDED">
+              <%= f.number_field :no_of_baby_chairs_needed, { placeholder: "No of baby chairs needed", min: 0, max: 9, value: 0, class: "form-control input-lg"} %>
+            </div>
+          </div>
           <div class="form-group labelholder" data-label="ATTENDING?">
-            <%= f.collection_select :attending, [true, false], :to_s, :to_s, {}, { class: "form-control input-lg" } %>
+            <%= f.collection_select :attending, [true, false], :to_s, :humanize, {}, { class: "form-control input-lg" } %>
+          </div>
+          <div class="form-group labelholder" data-label="DIETARY CONCERNS?">
+            <%= f.text_field :dietary_concerns, placeholder: "Dietary concerns?", class: "form-control input-lg" %>
+          </div>
+          <div class="form-group labelholder" data-label="ANY OTHER MESSAGES?">
+            <%= f.text_field :any_other_messages, placeholder: "Any other messages?", class: "form-control input-lg" %>
           </div>
         <% end %>
       </div>
