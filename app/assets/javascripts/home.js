@@ -48,9 +48,134 @@ $(document).ready(function() {
   });
 
   // GOOGLE MAPS
+  var mapStyle = [
+    {
+      "featureType": "all",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#81d8d0"
+        },
+        {
+          "weight": "1.00"
+        }
+      ]
+    },
+    {
+      "featureType": "all",
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "saturation": "-100"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "simplified"
+        },
+        {
+          "color": "#fcfcfc"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "simplified"
+        },
+        {
+          "color": "#fcfcfc"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "simplified"
+        },
+        {
+          "color": "#dddddd"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "simplified"
+        },
+        {
+          "color": "#dddddd"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "simplified"
+        },
+        {
+          "color": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#81d8d0"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#81d8d0"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#eeeeee"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dddddd"
+        },
+        {
+          "visibility": "simplified"
+        }
+      ]
+    }
+  ]
   var handler = Gmaps.build('Google');
   handler.buildMap({ 
-    provider: {}, 
+    provider: {
+      scrollwheel: false,
+      styles: mapStyle
+    }, 
     internal: {
       id: 'map'
     }
@@ -65,7 +190,7 @@ $(document).ready(function() {
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(17);
+    handler.getMap().setZoom(16);
   });
 
 });
