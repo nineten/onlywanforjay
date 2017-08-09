@@ -13,7 +13,7 @@ module OnlywanforjayWebsite
 
     config.autoload_paths += Dir[
       "#{config.root}/app/services/",
-      "#{config.root}/lib/**/"
+      "#{config.root}/lib/"
     ]
 
   end

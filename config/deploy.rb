@@ -12,7 +12,7 @@ require 'mina/unicorn'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'Onlywanforjay'
-set :repository, ''
+set :repository, 'https://github.com/nineten/onlywanforjay'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
@@ -36,11 +36,11 @@ task :setup => :environment do
 end
 
 task :production do
-  set :domain, ''
+  set :domain, 'onlywanforjay.codebean.sg'
   set :user, 'ubuntu'
   set :deploy_to, "/home/ubuntu/#{fetch(:application_name)}-production"
   set :rails_env, 'production'
-  set :branch, 'production'
+  set :branch, 'master'
   set :unicorn_pid, "#{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid"
   set :unicorn_cmd, "RAILS_ENV=#{fetch(:rails_env)} bundle exec unicorn"
 end
