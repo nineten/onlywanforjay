@@ -11,7 +11,7 @@ require 'mina/unicorn'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'Onlywanforjay'
+set :application_name, 'OnlywanforjayWebsite'
 set :repository, 'https://github.com/nineten/onlywanforjay'
 
 # Optional settings:
