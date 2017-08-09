@@ -66,6 +66,12 @@ $(document).ready(function() {
     }
   });
 
+  // FORM SUBMISSION
+  $("#new_rsvp").submit(function(e){
+    e.preventDefault();
+    return false;
+  });
+
   // GOOGLE MAPS
   var mapStyle = [
     {
