@@ -11,7 +11,7 @@ module OnlywanforjayWebsite
 
     config.time_zone = 'Singapore'
 
-    config.autoload_paths += Dir[
+    config.eager_load_paths  += Dir[
       "#{config.root}/app/services/",
       "#{config.root}/lib/"
     ]
