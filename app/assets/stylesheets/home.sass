@@ -55,10 +55,6 @@ body
       -webkit-transition: all .2s linear
       fill: #ffffff !important
 
-@media only screen and (max-device-width: 1024px)
-  .parallax 
-    background-attachment: scroll
-
 .home
   text-align: center
   position: relative
@@ -72,18 +68,6 @@ body
     img
       width: 100%
 
-  .content
-    padding: 80px 0px 80px 0px
-
-    .title
-      font-family: 'Great Vibes', cursive
-      font-size: 80px
-
-    .rsvp-form
-      font-family: 'Josefin Sans', sans-serif
-
-      .labelholder::before
-
   .footer
     position: absolute
     left: 0px
@@ -93,18 +77,56 @@ body
     img
       width: 100%
 
-.access
-  text-align: center
-  height: 100vh
-  padding: 80px 0px 80px 0px
-  //background: #A9FFF8
-  background: #81d8d0
+  .content
+    padding: 80px 40px 80px 40px
 
-  .title
-    font-family: 'Great Vibes', cursive
-    font-size: 80px
+    .title
+      margin-bottom: 40px
+      //margin-left: 10%
 
-  .access-map
+    .rsvp-form
+      font-family: 'Josefin Sans', sans-serif
+
+      //.labelholder::before
+
+.parallax2
+  /* The image used */
+  background-image: image-url("background2.jpg")
+
+  /* Set a specific height */
+  height: 120vh
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center 100%
+
+  font-family: 'Amatic Sc', cursive
+  font-weight: 700
+
+  .content
+    text-align: center
+    padding-top: 5vh
+    //margin-left: 20vw
+    display: block
+    //color: #694489
+    color: #000
+
+    .content-block
+      width: 100%
+
+      .title
+        margin-bottom: 40px
+        text-align: center
+
+      .access-map
+        text-align: center
+
+        #map
+          margin-left: 10%
+          width: 80%
+          height: 40vh
 
 select.form-control
   -webkit-appearance: textfield

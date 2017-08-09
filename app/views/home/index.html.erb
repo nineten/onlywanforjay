@@ -25,43 +25,47 @@
     <%= image_tag 'header.png' %>
   </div>
   <div class="content">
-    <div class="title">
-      Jayden &amp; Wanli
-    </div>
-    <div class="rsvp-form row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"} do |f| %>
-          <div class="form-group labelholder" data-label="NAME">
-            <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg" %>
-          </div>
-          <div class="form-group labelholder" data-label="EMAIL">
-            <%= f.email_field :email, placeholder: "Email", class: "form-control input-lg" %>
-          </div>
-          <div class="form-group labelholder" data-label="CONTACT NUMBER">
-            <%= f.text_field :contact_no, placeholder: "Contact number", class: "form-control input-lg" %>
-          </div>
-          <div class="form-group labelholder" data-label="NO OF GUESTS">
-            <%= f.number_field :no_of_guests, { placeholder: "Number of guests", min: 1, max: 9, step: 1, value: 1, class: "form-control input-lg"} %>
-          </div>
-          <div id="additional-guests" style="display: none;">
-            <div id="additional-guests-names"></div>
-            <div class="form-group labelholder" data-label="NO OF BABY CHAIRS NEEDED">
-              <%= f.number_field :no_of_baby_chairs_needed, { placeholder: "No of baby chairs needed", min: 0, max: 9, value: 0, class: "form-control input-lg"} %>
+    <div class="container">
+      <div class="title row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <%= image_tag 'content_title.png', class: 'img img-responsive' %>
+        </div>
+      </div>
+      <div class="rsvp-form row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group labelholder" data-label="NAME">
+              <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg" %>
             </div>
-          </div>
-          <div class="form-group labelholder" data-label="ATTENDING?">
-            <%= f.collection_select :attending, [true, false], :to_s, :humanize, {}, { class: "form-control input-lg" } %>
-          </div>
-          <div class="form-group labelholder" data-label="DIETARY CONCERNS?">
-            <%= f.text_field :dietary_concerns, placeholder: "Dietary concerns?", class: "form-control input-lg" %>
-          </div>
-          <div class="form-group labelholder" data-label="ANY OTHER MESSAGES?">
-            <%= f.text_field :any_other_messages, placeholder: "Any other messages?", class: "form-control input-lg" %>
-          </div>
-          <div class="form-group">
-            <%= f.submit "Send RSVP", class: "btn btn-default btn-lg btn-block" %>
-          </div>
-        <% end %>
+            <div class="form-group labelholder" data-label="EMAIL">
+              <%= f.email_field :email, placeholder: "Email", class: "form-control input-lg" %>
+            </div>
+            <div class="form-group labelholder" data-label="CONTACT NUMBER">
+              <%= f.text_field :contact_no, placeholder: "Contact number", class: "form-control input-lg" %>
+            </div>
+            <div class="form-group labelholder" data-label="NO OF GUESTS">
+              <%= f.number_field :no_of_guests, { placeholder: "Number of guests", min: 1, max: 9, step: 1, value: 1, class: "form-control input-lg"} %>
+            </div>
+            <div id="additional-guests" style="display: none;">
+              <div id="additional-guests-names"></div>
+              <div class="form-group labelholder" data-label="NO OF BABY CHAIRS NEEDED">
+                <%= f.number_field :no_of_baby_chairs_needed, { placeholder: "No of baby chairs needed", min: 0, max: 9, value: 0, class: "form-control input-lg"} %>
+              </div>
+            </div>
+            <div class="form-group labelholder" data-label="ATTENDING?">
+              <%= f.collection_select :attending, [true, false], :to_s, :humanize, {}, { class: "form-control input-lg" } %>
+            </div>
+            <div class="form-group labelholder" data-label="DIETARY CONCERNS?">
+              <%= f.text_field :dietary_concerns, placeholder: "Dietary concerns?", class: "form-control input-lg" %>
+            </div>
+            <div class="form-group labelholder" data-label="ANY OTHER MESSAGES?">
+              <%= f.text_field :any_other_messages, placeholder: "Any other messages?", class: "form-control input-lg" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Send RSVP", class: "btn btn-default btn-lg btn-block" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -69,11 +73,19 @@
     <%= image_tag 'footer.png' %>
   </div>
 </div>
-<div class="access">
-  <div class="title">
-    Access
-  </div>
-  <div class="access-map">
-    <div id="map" style="width: 100%; height: 60vh;"></div>
+<div class="parallax2">
+  <div class="content">
+    <div class="content-block">
+      <div class="container">
+        <div class="title row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <%= image_tag 'access_title.png', class: 'img img-responsive' %>
+          </div>
+        </div>
+      </div>
+      <div class="access-map">
+        <div id="map"></div>
+      </div>
+    </div>
   </div>
 </div>

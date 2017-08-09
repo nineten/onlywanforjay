@@ -4,6 +4,7 @@
       speed = 0.5;
 
   window.onscroll = function(){
+    // parallax 1
     var parallax = document.querySelectorAll(".parallax");
     var viewheight = window.innerHeight;
     [].slice.call(parallax).forEach(function(el,i){
@@ -16,7 +17,25 @@
       var elc = el.children;
       Array.from(elc).forEach(function(el, i) {
         var newOpacity = 1.0 - (windowYOffset / viewheight * 2);
-        el.style.opacity = newOpacity
+        el.style.opacity = newOpacity;
+      });
+
+    });
+
+    // parallax 2
+    var parallax2 = document.querySelectorAll(".parallax2");
+    [].slice.call(parallax2).forEach(function(el,i){
+
+      var elBoundingRect = el.getBoundingClientRect();
+      var divPos = Math.max(0, (elBoundingRect.height - elBoundingRect.top - viewheight * 0.2));
+      var elBackgrounPos = "50% " + (50 + (divPos/ (viewheight*1.2) * speed * 100)) + "%";
+
+      el.style.backgroundPosition = elBackgrounPos;
+
+      var elc = el.children;
+      Array.from(elc).forEach(function(el, i) {
+        var newOpacity = 0.0 + (divPos / (viewheight*1.2) * 2);
+        el.style.opacity = newOpacity;
       });
 
     });
@@ -182,7 +201,6 @@ $(document).ready(function() {
   }, function(){
     markers = handler.addMarkers([
       {
-        //placeId: "ChIJM5V40Pgb2jER--ifKKZe-sA"
         lat: 1.252107, 
         lng: 103.817504,
         infowindow: 'Jayden & Wanli Wedding'
