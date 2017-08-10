@@ -3,20 +3,21 @@ body
   margin: 0
 
 .parallax
-  /* The image used */
-  background-image: image-url("background.jpg")
-
-  /* Set a specific height */
   height: 100vh
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center 100%
-
   font-family: 'Amatic Sc', cursive
   font-weight: 700
+
+  .background
+    z-index: -1
+    position: fixed
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center 100%
+    background-image: image-url("background.jpg")
 
   .content
     text-align: center
@@ -58,12 +59,13 @@ body
 .home
   text-align: center
   position: relative
+  background: #fff
 
   .header
     position: absolute
     left: 0px
     top: 0px
-    z-index: -1
+    z-index: 0
 
     img
       width: 100%
@@ -72,13 +74,14 @@ body
     position: absolute
     left: 0px
     bottom: 0px
-    z-index: -1
+    z-index: 0
 
     img
       width: 100%
 
   .content
     padding: 80px 40px 80px 40px
+    z-index: 1
 
     .title
       margin-bottom: 40px
@@ -89,21 +92,26 @@ body
 
       //.labelholder::before
 
+@media only screen and (max-device-width: 1024px)
+  .parallax2
+    height: 100vh !important
+
 .parallax2
-  /* The image used */
-  background-image: image-url("background2.jpg")
-
-  /* Set a specific height */
   height: 120vh
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center 100%
-
   font-family: 'Amatic Sc', cursive
   font-weight: 700
+
+  .background
+    z-index: -2
+    position: fixed
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center 100%
+    background-image: image-url("background2.jpg")
 
   .content
     text-align: center

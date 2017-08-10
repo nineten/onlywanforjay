@@ -11,13 +11,22 @@
 
       var windowYOffset = window.pageYOffset,
         elBackgrounPos = "50% " + (100 + (windowYOffset / viewheight * speed * 100)) + "%";
-
-      el.style.backgroundPosition = elBackgrounPos;
+      var moveRatio = windowYOffset / viewheight;
 
       var elc = el.children;
       Array.from(elc).forEach(function(el, i) {
-        var newOpacity = 1.0 - (windowYOffset / viewheight * 2);
-        el.style.opacity = newOpacity;
+        if (el.className == "background") {
+          el.style.backgroundPosition = elBackgrounPos;
+          if (moveRatio > 1.0) {
+            el.style.display = 'none';
+          } else {
+            el.style.opacity = 1.0;
+            el.style.display = 'block';
+          }
+        } else {
+          var newOpacity = 1.0 - moveRatio * 2;
+          el.style.opacity = newOpacity;
+        }
       });
 
     });
@@ -29,13 +38,15 @@
       var elBoundingRect = el.getBoundingClientRect();
       var divPos = Math.max(0, (elBoundingRect.height - elBoundingRect.top - viewheight * 0.2));
       var elBackgrounPos = "50% " + (50 + (divPos/ (viewheight*1.2) * speed * 100)) + "%";
-
-      el.style.backgroundPosition = elBackgrounPos;
+      var newOpacity = 0.0 + (divPos / (viewheight*1.2) * 2);
 
       var elc = el.children;
       Array.from(elc).forEach(function(el, i) {
-        var newOpacity = 0.0 + (divPos / (viewheight*1.2) * 2);
-        el.style.opacity = newOpacity;
+        if (el.className == "background") {
+          el.style.backgroundPosition = elBackgrounPos;
+        } else {
+          el.style.opacity = newOpacity;
+        }
       });
 
     });
