@@ -5,9 +5,11 @@ class HomeController < ApplicationController
   end
 
   def create_rsvp
-    #SendRsvp.call()
     respond_to do |format|
       format.json { 
+        rsvp = Rsvp.new(create_rsvp_params)
+        SendRsvp.call(rsvp: rsvp)
+
         render json: {
           response: "Success"
         }
