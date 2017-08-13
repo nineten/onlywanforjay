@@ -72,7 +72,7 @@ $(document).ready(function() {
       $("#additional-guests-names").html("");
 
       for (i = 1; i < value; i++) {
-        var input_field = "<div class='form-group labelholder' data-label='ADDITIONAL GUEST NAME " + i + "'><input placeholder='Additional guest name " + i + "' class='form-control input-lg' type='text' name='rsvp[names_of_additional_guests][]' id='rsvp_names_of_additional_guests[" + i + "]'></div>";
+        var input_field = "<div class='form-group labelholder' data-label='ADDITIONAL GUEST NAME " + i + "'><input placeholder='Additional guest name " + i + "' class='form-control input-lg' type='text' name='rsvp[names_of_additional_guests_list][]' id='rsvp_names_of_additional_guests_list[" + i + "]'></div>";
         $("#additional-guests-names").append(input_field);
       }
 
@@ -85,8 +85,23 @@ $(document).ready(function() {
   });
 
   // FORM SUBMISSION
+  var transitionToRsvpSuccess = function() {
+    $('html, body').animate({
+        scrollTop: $("#middle-section").offset().top
+    }, 100);
+    $("#rsvp-form").animate({ 'opacity': '0' }, 500,function() {
+      $(this).hide();
+      $("#rsvp-form-success").toggleClass("hidden", false);
+      $("#rsvp-form-success").toggleClass("fadeIn", true);
+      var e = document.createEvent("UIEvents");
+      e.initUIEvent("scroll", true, true, window, 1);
+      window.dispatchEvent(e);
+    });
+  }
+
   $("#new_rsvp").submit(function(e){
     e.preventDefault();
+    transitionToRsvpSuccess();
     return false;
   });
 

@@ -22,5 +22,9 @@ class Rsvp
     self.timestamp = DateTime.now.strftime(Constants::EXPORTED_TIME_FORMAT)
   end
 
+  def names_of_additional_guests_list=(names)
+    self.names_of_additional_guests = names.join(", ")
+  end
+
 end
 

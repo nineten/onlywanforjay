@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="home">
+<div class="home" id="middle-section">
   <div class="header">
     <%= image_tag 'header.png' %>
   </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="rsvp-form row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div id="rsvp-form" class="col-sm-6 col-sm-offset-3">
           <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group labelholder" data-label="NAME">
               <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg" %>
@@ -68,6 +68,10 @@
               <%= f.submit "Send RSVP", class: "btn btn-default btn-lg btn-block" %>
             </div>
           <% end %>
+        </div>
+        <div id="rsvp-form-success" class="col-sm-6 col-sm-offset-3 hidden">
+          Thanks for sharing our joy!<br/>
+          We look forward to meeting you on 22 October 2017 (Sunday)! (:
         </div>
       </div>
     </div>

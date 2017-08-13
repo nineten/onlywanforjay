@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index] do
     collection do 
-      post 'create_rsvp', to: 'home#create_rsvp'
+      post 'create_rsvp', to: 'home#create_rsvp', defaults: { format: :json }
     end
   end
 
