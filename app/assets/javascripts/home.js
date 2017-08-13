@@ -4,48 +4,55 @@
       speed = 0.5;
 
   window.onscroll = function(){
-    // parallax 1
-    var parallax = document.querySelectorAll(".parallax");
     var viewheight = window.innerHeight;
-    [].slice.call(parallax).forEach(function(el,i){
+    var viewwidth= window.innerWidth;
+    var windowYOffset = window.pageYOffset;
+    var moveRatio = windowYOffset / viewheight;
 
-      var windowYOffset = window.pageYOffset,
-        elBackgrounPos = "50% " + (100 + (windowYOffset / viewheight * speed * 100)) + "%";
-      var moveRatio = windowYOffset / viewheight;
+    // parallax 1
+    var backgroundOffset1 = windowYOffset * speed;
+    var backgrounPos1 = "50% calc(100% - " + (backgroundOffset1) + "px)";
+    var newOpacity1 = Math.max((1.0 - moveRatio * 2), 0.0);
+    var parallax = document.querySelectorAll(".parallax");
+    [].slice.call(parallax).forEach(function(el,i){
 
       var elc = el.children;
       Array.from(elc).forEach(function(el, i) {
         if (el.className == "background") {
-          el.style.backgroundPosition = elBackgrounPos;
+          el.style.backgroundPosition = backgrounPos1;
           if (moveRatio > 1.1) {
             el.style.display = 'none';
           } else {
-            el.style.opacity = 1.0;
             el.style.display = 'block';
           }
         } else {
-          var newOpacity = 1.0 - moveRatio * 2;
-          el.style.opacity = newOpacity;
+          el.style.opacity = newOpacity1;
         }
       });
 
     });
 
     // parallax 2
+    var bgViewOffset2 = 0;
+    var backgroundHeight2 = viewheight;
+    if (viewwidth > 991) {
+      bgViewOffset2 = viewheight * 0.2;
+      backgroundHeight2 = viewheight * 1.2;
+    }
     var parallax2 = document.querySelectorAll(".parallax2");
     [].slice.call(parallax2).forEach(function(el,i){
-
       var elBoundingRect = el.getBoundingClientRect();
-      var divPos = Math.max(0, (elBoundingRect.height - elBoundingRect.top - viewheight * 0.2));
-      var elBackgrounPos = "50% " + (50 + (divPos/ (viewheight*1.2) * speed * 100)) + "%";
-      var newOpacity = 0.0 + (divPos / (viewheight*1.2) * 2);
+      var divPos = Math.max(0, (elBoundingRect.height - elBoundingRect.top - bgViewOffset2));
+      var backgroundOffset2 = (backgroundHeight2 - divPos) * speed;
+      var backgroundPos2 = "50% calc(100% + " + (backgroundOffset2) + "px)";
+      var newOpacity2 = 0.0 + (divPos / (viewheight*1.2) * 2);
 
       var elc = el.children;
       Array.from(elc).forEach(function(el, i) {
         if (el.className == "background") {
-          el.style.backgroundPosition = elBackgrounPos;
+          el.style.backgroundPosition = backgroundPos2;
         } else {
-          el.style.opacity = newOpacity;
+          el.style.opacity = newOpacity2;
         }
       });
 
@@ -184,9 +191,6 @@ $(document).ready(function() {
       "stylers": [
         {
           "color": "#81d8d0"
-        },
-        {
-          "lightness": "-30"
         }
       ]
     },
