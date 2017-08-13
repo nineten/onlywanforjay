@@ -36,7 +36,7 @@
       </div>
       <div class="rsvp-form row">
         <div id="rsvp-form" class="col-sm-6 col-sm-offset-3">
-          <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"} do |f| %>
+          <%= form_for @rsvp, method: :post, url: create_rsvp_home_index_path, html: {class: "form-horizontal"}, remote: true do |f| %>
             <div class="form-group labelholder" data-label="NAME">
               <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg" %>
             </div>

@@ -86,9 +86,6 @@ $(document).ready(function() {
 
   // FORM SUBMISSION
   var transitionToRsvpSuccess = function() {
-    $('html, body').animate({
-        scrollTop: $("#middle-section").offset().top
-    }, 100);
     $("#rsvp-form").animate({ 'opacity': '0' }, 500,function() {
       $(this).hide();
       $("#rsvp-form-success").toggleClass("hidden", false);
@@ -99,10 +96,70 @@ $(document).ready(function() {
     });
   }
 
+  var isValidatedForm = function() {
+    var isValid = true;
+
+    var name_field = $("#rsvp_name");
+    if (name_field.val() != "") {
+      name_field.toggleClass("error", false);
+    } else {
+      isValid = false;
+      name_field.toggleClass("error", true);
+    }
+
+    var email_field = $("#rsvp_email");
+    var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (email_field.val() != "" && email_regex.test(email_field.val())) {
+      email_field.toggleClass("error", false);
+    } else {
+      isValid = false;
+      email_field.toggleClass("error", true);
+    }
+
+    var contact_number_field = $("#rsvp_contact_no");
+    var contact_number_regex = /^(6|8|9)\d{7}$/;
+    if (contact_number_field.val() != "" && contact_number_regex.test(contact_number_field.val())) {
+      contact_number_field.toggleClass("error", false);
+    } else {
+      isValid = false;
+      contact_number_field.toggleClass("error", true);
+    }
+
+    var no_of_guests_field = $("#rsvp_no_of_guests");
+    var no_of_guests_regex = /^[1-9]$/;
+    var no_of_guests = 0
+    if (no_of_guests_field.val() != "" && no_of_guests_regex.test(no_of_guests_field.val())) {
+      no_of_guests_field.toggleClass("error", false);
+      no_of_guests = parseInt(no_of_guests_field.val());
+    } else {
+      isValid = false;
+      no_of_guests_field.toggleClass("error", true);
+    }
+
+    for (n = 1; n <= (no_of_guests - 1); n++) {
+      var additional_name_field = $("#rsvp_names_of_additional_guests_list\\[" + n + "\\]");
+      if (additional_name_field.val() != "") {
+        additional_name_field.toggleClass("error", false);
+      } else {
+        isValid = false;
+        additional_name_field.toggleClass("error", true);
+      }
+    }
+
+    return isValid;
+  }
+
   $("#new_rsvp").submit(function(e){
-    e.preventDefault();
-    transitionToRsvpSuccess();
-    return false;
+    $('html, body').animate({
+        scrollTop: $("#middle-section").offset().top
+    }, 100);
+
+    if (isValidatedForm()) {
+      transitionToRsvpSuccess();
+    } else {
+      e.preventDefault();
+      return false;
+    }
   });
 
   // GOOGLE MAPS
