@@ -17,7 +17,7 @@
       Array.from(elc).forEach(function(el, i) {
         if (el.className == "background") {
           el.style.backgroundPosition = elBackgrounPos;
-          if (moveRatio > 1.0) {
+          if (moveRatio > 1.1) {
             el.style.display = 'none';
           } else {
             el.style.opacity = 1.0;
