@@ -94,6 +94,9 @@ $(document).ready(function() {
         },
         {
           "weight": "1.00"
+        },
+        {
+          "lightness": "-30"
         }
       ]
     },
@@ -181,6 +184,9 @@ $(document).ready(function() {
       "stylers": [
         {
           "color": "#81d8d0"
+        },
+        {
+          "lightness": "-30"
         }
       ]
     },
